@@ -1,0 +1,295 @@
+{
+  "protocol_sha256": "1fd13cb7e0acf82a886d35a2c789ada5073828a8277fcb32ac5ff67a57cc23a9",
+  "comparisons": [
+    {
+      "comparison_id": "cystods_malignant_vs_rest__specificity_dctg_minus_joint",
+      "statistic": "specificity",
+      "n_images": 8067,
+      "n_groups": 160,
+      "n_active_groups": 65,
+      "estimate_a": 0.9415758947517329,
+      "estimate_b": 0.9294101004385344,
+      "difference": 0.01216579431319842,
+      "model_a_counts": {
+        "tn": 6656,
+        "fp": 413,
+        "fn": 113,
+        "tp": 885,
+        "n_images": 8067,
+        "macro_f1": 0.8664473250197784,
+        "sensitivity": 0.8867735470941884,
+        "specificity": 0.9415758947517329
+      },
+      "model_b_counts": {
+        "tn": 6570,
+        "fp": 499,
+        "fn": 119,
+        "tp": 879,
+        "n_images": 8067,
+        "macro_f1": 0.8474898351152167,
+        "sensitivity": 0.8807615230460922,
+        "specificity": 0.9294101004385344
+      },
+      "method": "monte_carlo_group_randomization",
+      "p_raw": 0.0822979177020823,
+      "extreme_assignments": "82297",
+      "total_assignments": "1000000",
+      "states_evaluated": 1000000,
+      "rng_seed": "15664942231828833235",
+      "monte_carlo_se": 0.00027481806789944434,
+      "target": "cystods_malignant_vs_rest",
+      "model_a": "DCTG binary-label-only",
+      "model_b": "Joint-VMamba",
+      "validation_sensitivity_target": 0.9,
+      "p_holm": 0.1645958354041646,
+      "multiplicity_family": "specificity_two_contrasts",
+      "multiplicity_family_size": 2
+    },
+    {
+      "comparison_id": "ebtc_tumor_vs_nontumor__specificity_dctg_minus_joint",
+      "statistic": "specificity",
+      "n_images": 1611,
+      "n_groups": 22,
+      "n_active_groups": 4,
+      "estimate_a": 0.9397810218978102,
+      "estimate_b": 0.9525547445255474,
+      "difference": -0.012773722627737238,
+      "model_a_counts": {
+        "tn": 515,
+        "fp": 33,
+        "fn": 136,
+        "tp": 927,
+        "n_images": 1611,
+        "macro_f1": 0.8877549548004454,
+        "sensitivity": 0.8720602069614299,
+        "specificity": 0.9397810218978102
+      },
+      "model_b_counts": {
+        "tn": 522,
+        "fp": 26,
+        "fn": 191,
+        "tp": 872,
+        "n_images": 1611,
+        "macro_f1": 0.858628263024295,
+        "sensitivity": 0.8203198494825964,
+        "specificity": 0.9525547445255474
+      },
+      "method": "exact_active_group_enumeration",
+      "p_raw": 0.25,
+      "extreme_assignments": "4",
+      "total_assignments": "16",
+      "states_evaluated": 16,
+      "rng_seed": null,
+      "monte_carlo_se": 0.0,
+      "target": "ebtc_tumor_vs_nontumor",
+      "model_a": "DCTG binary-label-only",
+      "model_b": "Joint-VMamba",
+      "validation_sensitivity_target": 0.9,
+      "p_holm": 0.25,
+      "multiplicity_family": "specificity_two_contrasts",
+      "multiplicity_family_size": 2
+    }
+  ],
+  "thresholds": [
+    {
+      "task": "cystods_malignant_vs_rest",
+      "model": "dctg_vmamba",
+      "fold": 1,
+      "threshold": 0.2365155,
+      "validation_sensitivity": 0.9047619047619048,
+      "validation_specificity": 0.9520069808027923,
+      "validation_positive": 168,
+      "required_positive": 152
+    },
+    {
+      "task": "cystods_malignant_vs_rest",
+      "model": "dctg_vmamba",
+      "fold": 2,
+      "threshold": 0.0056268363,
+      "validation_sensitivity": 0.9054054054054054,
+      "validation_specificity": 0.9623655913978495,
+      "validation_positive": 148,
+      "required_positive": 134
+    },
+    {
+      "task": "cystods_malignant_vs_rest",
+      "model": "dctg_vmamba",
+      "fold": 3,
+      "threshold": 4.1054984e-05,
+      "validation_sensitivity": 0.9032258064516129,
+      "validation_specificity": 0.8641049671977507,
+      "validation_positive": 155,
+      "required_positive": 140
+    },
+    {
+      "task": "cystods_malignant_vs_rest",
+      "model": "dctg_vmamba",
+      "fold": 4,
+      "threshold": 4.1891442e-05,
+      "validation_sensitivity": 0.9,
+      "validation_specificity": 0.9294532627865961,
+      "validation_positive": 170,
+      "required_positive": 153
+    },
+    {
+      "task": "cystods_malignant_vs_rest",
+      "model": "dctg_vmamba",
+      "fold": 5,
+      "threshold": 0.6503211,
+      "validation_sensitivity": 0.9056603773584906,
+      "validation_specificity": 0.9724849527085124,
+      "validation_positive": 159,
+      "required_positive": 144
+    },
+    {
+      "task": "cystods_malignant_vs_rest",
+      "model": "joint_vmamba_tiny",
+      "fold": 1,
+      "threshold": 1.6491304e-05,
+      "validation_sensitivity": 0.9047619047619048,
+      "validation_specificity": 0.8446771378708552,
+      "validation_positive": 168,
+      "required_positive": 152
+    },
+    {
+      "task": "cystods_malignant_vs_rest",
+      "model": "joint_vmamba_tiny",
+      "fold": 2,
+      "threshold": 0.8848527,
+      "validation_sensitivity": 0.9054054054054054,
+      "validation_specificity": 0.9731182795698925,
+      "validation_positive": 148,
+      "required_positive": 134
+    },
+    {
+      "task": "cystods_malignant_vs_rest",
+      "model": "joint_vmamba_tiny",
+      "fold": 3,
+      "threshold": 0.0019288512,
+      "validation_sensitivity": 0.9032258064516129,
+      "validation_specificity": 0.872539831302718,
+      "validation_positive": 155,
+      "required_positive": 140
+    },
+    {
+      "task": "cystods_malignant_vs_rest",
+      "model": "joint_vmamba_tiny",
+      "fold": 4,
+      "threshold": 7.4719005e-06,
+      "validation_sensitivity": 0.9,
+      "validation_specificity": 0.8985890652557319,
+      "validation_positive": 170,
+      "required_positive": 153
+    },
+    {
+      "task": "cystods_malignant_vs_rest",
+      "model": "joint_vmamba_tiny",
+      "fold": 5,
+      "threshold": 0.9622317,
+      "validation_sensitivity": 0.9056603773584906,
+      "validation_specificity": 0.9767841788478074,
+      "validation_positive": 159,
+      "required_positive": 144
+    },
+    {
+      "task": "ebtc_tumor_vs_nontumor",
+      "model": "dctg_vmamba",
+      "fold": 1,
+      "threshold": 0.99994636,
+      "validation_sensitivity": 0.9041095890410958,
+      "validation_specificity": 1.0,
+      "validation_positive": 146,
+      "required_positive": 132
+    },
+    {
+      "task": "ebtc_tumor_vs_nontumor",
+      "model": "dctg_vmamba",
+      "fold": 2,
+      "threshold": 0.99093634,
+      "validation_sensitivity": 0.9050632911392406,
+      "validation_specificity": 0.9634146341463414,
+      "validation_positive": 158,
+      "required_positive": 143
+    },
+    {
+      "task": "ebtc_tumor_vs_nontumor",
+      "model": "dctg_vmamba",
+      "fold": 3,
+      "threshold": 0.9999633,
+      "validation_sensitivity": 0.9014084507042254,
+      "validation_specificity": 1.0,
+      "validation_positive": 142,
+      "required_positive": 128
+    },
+    {
+      "task": "ebtc_tumor_vs_nontumor",
+      "model": "dctg_vmamba",
+      "fold": 4,
+      "threshold": 0.9999424,
+      "validation_sensitivity": 0.9038461538461539,
+      "validation_specificity": 0.8817204301075269,
+      "validation_positive": 156,
+      "required_positive": 141
+    },
+    {
+      "task": "ebtc_tumor_vs_nontumor",
+      "model": "dctg_vmamba",
+      "fold": 5,
+      "threshold": 0.9998516,
+      "validation_sensitivity": 0.9014084507042254,
+      "validation_specificity": 0.9887640449438202,
+      "validation_positive": 142,
+      "required_positive": 128
+    },
+    {
+      "task": "ebtc_tumor_vs_nontumor",
+      "model": "joint_vmamba_tiny",
+      "fold": 1,
+      "threshold": 0.9996804,
+      "validation_sensitivity": 0.9041095890410958,
+      "validation_specificity": 1.0,
+      "validation_positive": 146,
+      "required_positive": 132
+    },
+    {
+      "task": "ebtc_tumor_vs_nontumor",
+      "model": "joint_vmamba_tiny",
+      "fold": 2,
+      "threshold": 0.9993399,
+      "validation_sensitivity": 0.9050632911392406,
+      "validation_specificity": 0.9634146341463414,
+      "validation_positive": 158,
+      "required_positive": 143
+    },
+    {
+      "task": "ebtc_tumor_vs_nontumor",
+      "model": "joint_vmamba_tiny",
+      "fold": 3,
+      "threshold": 0.999998,
+      "validation_sensitivity": 0.9014084507042254,
+      "validation_specificity": 1.0,
+      "validation_positive": 142,
+      "required_positive": 128
+    },
+    {
+      "task": "ebtc_tumor_vs_nontumor",
+      "model": "joint_vmamba_tiny",
+      "fold": 4,
+      "threshold": 0.99999535,
+      "validation_sensitivity": 0.9038461538461539,
+      "validation_specificity": 0.946236559139785,
+      "validation_positive": 156,
+      "required_positive": 141
+    },
+    {
+      "task": "ebtc_tumor_vs_nontumor",
+      "model": "joint_vmamba_tiny",
+      "fold": 5,
+      "threshold": 0.99999917,
+      "validation_sensitivity": 0.9084507042253521,
+      "validation_specificity": 0.9887640449438202,
+      "validation_positive": 142,
+      "required_positive": 128
+    }
+  ]
+}

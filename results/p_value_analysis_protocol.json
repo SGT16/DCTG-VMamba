@@ -1,0 +1,69 @@
+{
+  "schema": "dctg.additional_pvalue_analysis.v1",
+  "frozen_at_utc": "2026-10-27T15:43:55.403854+00:00",
+  "status": "frozen_before_any_new_p_values",
+  "source_inventories": {
+    "taxonomy_input_inventory.json": "25b110ce62d078ee5c2e24dd821a8e81db5577064acd34e856c548f01bc9376e",
+    "operating_input_inventory.json": "a331bdb06f4d997510b94e9f269b90b6d974ff6a37d6147acfeeed775a3f2aff"
+  },
+  "analysis_type": "New retrospective analysis of retained predictions; no model training or inference",
+  "taxonomy": {
+    "families": 1,
+    "family_size": 6,
+    "targets": [
+      "cystods",
+      "ebtc",
+      "kaggle_wli"
+    ],
+    "contrasts": [
+      "dctg_taxonomy_minus_joint_source_fusion",
+      "dctg_taxonomy_minus_dctg_source_fusion"
+    ],
+    "statistic": "pooled binary macro-F1 difference; fixed two-class label set",
+    "threshold": 0.5,
+    "scores": "five-source-fold probability ensembles as saved; taxonomy_global_prob_neoplastic versus prob_neoplastic"
+  },
+  "operating": {
+    "families": 1,
+    "family_size": 2,
+    "tasks": [
+      "cystods_malignant_vs_rest",
+      "ebtc_tumor_vs_nontumor"
+    ],
+    "source_runs": "fresh matched binary-label-only",
+    "statistic": "pooled outer-test specificity DCTG minus Joint",
+    "positive_class_index": 0,
+    "scores": "raw saved positive-class probabilities, decimal CSV values read as float64",
+    "validation_sensitivity_target": 0.9,
+    "threshold_rule": "Per model and outer fold: highest observed positive validation score with validation sensitivity >=0.90; score>=threshold; ceil(9*n_positive/10) positives required. All thresholds frozen before opening test outcome metrics.",
+    "no_test_threshold_tuning": true
+  },
+  "inference": {
+    "null": "paired model predictions exchangeable within each retained group, conditional on labels and fitted models",
+    "permutation_unit": "entire recorded group; fixed group membership, no images moved between folds/groups",
+    "alternative": "two sided abs(metric_A-metric_B)",
+    "ties_tolerance": 1e-12,
+    "method_selection": "Based on input group structure only, before p-values. If each group has one image, compute exact binomial-weighted randomization over discordant outcomes within each true class. Otherwise enumerate all swaps if <=20 groups have statistic-relevant differences; else use 1,000,000 independent group swaps. Inactive groups integrate out exactly.",
+    "exact_active_group_max": 20,
+    "monte_carlo_draws": 1000000,
+    "monte_carlo_batch_size": 4096,
+    "seed_base": 20261027,
+    "seed_derivation": "int.from_bytes(SHA256(str(seed_base)+\"|\"+comparison_id).digest()[:8],\"little\")",
+    "rng": "numpy.random.Generator(PCG64)",
+    "monte_carlo_p": "(extreme_or_equal+1)/(B+1)",
+    "exact_p": "extreme assignment probability under independent fair group swaps; no Monte Carlo plus-one adjustment",
+    "multiplicity": "Holm within the prespecified six taxonomy contrasts and separately within the two specificity contrasts",
+    "confidence_intervals": "No new confidence intervals in this p-value-only analysis; Monte Carlo SE is numerical sampling error, not model uncertainty"
+  },
+  "limitations": [
+    "Retrospective analysis after previous outcome inspection; not prospectively prespecified confirmatory evidence.",
+    "CystoDS recorded patient groups; EBTC filename-derived cases; Kaggle one image per group, not verified patient units.",
+    "Conditional on saved models and chosen validation thresholds; excludes training and threshold-selection uncertainty.",
+    "External cloud code, seed and exact test algorithm unavailable; previously quoted p values are not target values."
+  ],
+  "compute": {
+    "device": "CPU",
+    "torch_import": false,
+    "threads": 1
+  }
+}
